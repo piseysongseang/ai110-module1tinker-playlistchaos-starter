@@ -277,7 +277,7 @@ def render_playlist(label, songs):
         return
 
     query = st.text_input(f"Search {label} playlist by artist", key=f"search_{label}")
-    filtered = search_songs(songs, query, field="artist")
+    filtered = search_songs(songs, query, field=["artist", "title", "genre"])
 
     if not filtered:
         st.write("No matching songs.")
